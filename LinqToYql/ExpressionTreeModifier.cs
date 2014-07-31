@@ -3,23 +3,23 @@ using System.Linq.Expressions;
 
 namespace LinqToYql
 {
-    internal class ExpressionTreeModifier<TData, TQueryResult> : ExpressionVisitor
+  internal class ExpressionTreeModifier<TData, TQueryResult> : ExpressionVisitor
+  {
+    private readonly IQueryable<TData> _queryableData;
+
+    internal ExpressionTreeModifier(IQueryable<TData> data)
     {
-        private readonly IQueryable<TData> queryableData;
-
-        internal ExpressionTreeModifier(IQueryable<TData> data)
-        {
-            queryableData = data;
-        }
-
-        internal Expression CopyAndModify(Expression expression)
-        {
-            return Visit(expression);
-        }
-
-        protected override Expression VisitConstant(ConstantExpression c)
-        {
-           return c.Type == typeof (QuerableYQLData<TData, TQueryResult, TData>) ? Expression.Constant(queryableData) : c;
-        }
+      _queryableData = data;
     }
+
+    internal Expression CopyAndModify(Expression expression)
+    {
+      return Visit(expression);
+    }
+
+    protected override Expression VisitConstant(ConstantExpression c)
+    {
+      return c.Type == typeof (QuerableYqlData<TData, TQueryResult, TData>) ? Expression.Constant(_queryableData) : c;
+    }
+  }
 }

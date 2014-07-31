@@ -1,0 +1,5 @@
+D:\LinqToYql\LinqToYql\bin\Debug\LinqToYql.dll
+D:\LinqToYql\LinqToYql\bin\Debug\LinqToYql.pdb
+D:\LinqToYql\LinqToYql\obj\Debug\LinqToYql.csprojResolveAssemblyReference.cache
+D:\LinqToYql\LinqToYql\obj\Debug\LinqToYql.dll
+D:\LinqToYql\LinqToYql\obj\Debug\LinqToYql.pdb

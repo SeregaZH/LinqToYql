@@ -2,8 +2,8 @@
 
 namespace LinqToYql.Interfaces
 {
-    public interface IExpressionConverter<out TResult>
-    {
-        TResult Convert(Expression expression);
-    }
+  public interface IExpressionConverter<out TResult>
+  {
+    TResult Convert(Expression expression);
+  }
 }

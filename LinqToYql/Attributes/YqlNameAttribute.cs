@@ -2,13 +2,13 @@
 
 namespace LinqToYql.Attributes
 {
-    public class YqlNameAttribute : Attribute
+  public class YqlNameAttribute : Attribute
+  {
+    public YqlNameAttribute(string name)
     {
-        public string Name { get;private set; }
-
-        public YqlNameAttribute(string name)
-        {
-            Name = name;
-        }
+      Name = name;
     }
+
+    public string Name { get; private set; }
+  }
 }

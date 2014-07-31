@@ -2,8 +2,7 @@
 
 namespace LinqToYql.Attributes
 {
-    public class YqlIgnore : Attribute
-    {
-
-    }
+  public class YqlIgnore : Attribute
+  {
+  }
 }
