@@ -30,7 +30,7 @@ namespace LinqToYql
     {
       if (expression != null)
       {
-        bool saveCannotBeEvaluated = this._cannotBeEvaluated;
+        bool saveCannotBeEvaluated = _cannotBeEvaluated;
         _cannotBeEvaluated = false;
         base.Visit(expression);
         if (!_cannotBeEvaluated)

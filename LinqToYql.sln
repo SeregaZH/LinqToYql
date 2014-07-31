@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToYqlDemo", "LinqToYqlDemo\LinqToYqlDemo.csproj", "{588C75E8-C005-4CD0-9801-15E4028B8A0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToYql", "LinqToYql\LinqToYql.csproj", "{C83F916E-D399-499D-96C6-3E09604D8466}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToYqlTests", "LinqToYqlTests\LinqToYqlTests.csproj", "{D1D59FDE-3C1F-4B6E-AEB6-590AFB80F354}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YqlInfrastructure", "YqlInfrastructure\YqlInfrastructure.csproj", "{1E56C1E2-A826-4BD1-9EC3-2B25E8041478}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{588C75E8-C005-4CD0-9801-15E4028B8A0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{588C75E8-C005-4CD0-9801-15E4028B8A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{588C75E8-C005-4CD0-9801-15E4028B8A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{588C75E8-C005-4CD0-9801-15E4028B8A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83F916E-D399-499D-96C6-3E09604D8466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83F916E-D399-499D-96C6-3E09604D8466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83F916E-D399-499D-96C6-3E09604D8466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83F916E-D399-499D-96C6-3E09604D8466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1D59FDE-3C1F-4B6E-AEB6-590AFB80F354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D59FDE-3C1F-4B6E-AEB6-590AFB80F354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1D59FDE-3C1F-4B6E-AEB6-590AFB80F354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1D59FDE-3C1F-4B6E-AEB6-590AFB80F354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E56C1E2-A826-4BD1-9EC3-2B25E8041478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E56C1E2-A826-4BD1-9EC3-2B25E8041478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E56C1E2-A826-4BD1-9EC3-2B25E8041478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E56C1E2-A826-4BD1-9EC3-2B25E8041478}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

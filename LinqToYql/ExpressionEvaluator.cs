@@ -23,7 +23,7 @@ namespace LinqToYql
     /// <returns>A new tree with sub-trees evaluated and replaced.</returns>
     public static Expression PartialEval(Expression expression)
     {
-      return PartialEval(expression, ExpressionEvaluator.CanBeEvaluatedLocally);
+      return PartialEval(expression, CanBeEvaluatedLocally);
     }
 
     private static bool CanBeEvaluatedLocally(Expression expression)
