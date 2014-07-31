@@ -40,6 +40,9 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="MonadSharp">
+      <HintPath>..\packages\MonadSharp.0.5.0.0\lib\Net40\MonadSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
