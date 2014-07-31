@@ -1,0 +1,7 @@
+*.dll
+obj/
+bin/
+Bin/
+*.suo
+*.bak
+
