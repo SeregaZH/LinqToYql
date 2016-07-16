@@ -18,22 +18,18 @@ namespace LinqToYqlDemo
 
         static void Main(string[] args)
         {
+            const int industryKey = 112;
             ISettingsFactory factory = new SettingsFactory();
-            IQuerySettings sectorSettings = factory.CreateSettings(SectorsConfigKey);
-            var query = new QuerableYqlData<YqlIndustrySector, XDocument, YqlIndustrySector>(sectorSettings, new XmlSectorsDataLoader());
-            var allSectors = from sectors in query select sectors;
-            var firstSector = allSectors.FirstOrDefault();
-            Console.WriteLine("Sector id:{0} name:{1}", firstSector.Id, firstSector.Name);
-
-            var firstIndustry = firstSector.Industries.FirstOrDefault();
+  
             IQuerySettings industrySettings = factory.CreateSettings(IndustryConfigKey);
             var industryQuery = new QuerableYqlData<YqlIndustry, XDocument, YqlIndustry>(industrySettings, new XmlIndustryDataLoader());
-            var resIndustry = from industry in industryQuery where firstIndustry.Key == industry.Key select industry;
+            var resIndustry = from industry in industryQuery where industry.Key == industryKey select industry;
             var fIndustry = resIndustry.FirstOrDefault();
             Console.WriteLine("Industry id:{0} name:{1} sector:{2}", fIndustry.Key, fIndustry.Name, fIndustry.Sector);
 
+            IQuerySettings quoteSettings = factory.CreateSettings(QuoteConfigKey);
             var twoCompaniesSymbols = fIndustry.Companies.Take(2).Select(x => x.Symbol).ToList();
-            var quoteQuery = new QuerableYqlData<YqlQuote, XDocument, YqlQuote>(sectorSettings, new XmlQuoteDataLoader());
+            var quoteQuery = new QuerableYqlData<YqlQuote, XDocument, YqlQuote>(quoteSettings, new XmlQuoteDataLoader());
             var quoteis = from quote in quoteQuery
                      where twoCompaniesSymbols.Contains(quote.Symbol)
                      select new YqlQuote
@@ -52,6 +48,7 @@ namespace LinqToYqlDemo
             {
                 Console.WriteLine("Sym: {0}, Bid {1}, Ask {2}", quote.Symbol, quote.Bid, quote.Ask);
             }
+            Console.ReadKey();
         }
     }
 }

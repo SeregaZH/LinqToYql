@@ -62,7 +62,7 @@ namespace LinqToYql.Converters
 
     protected override Expression VisitMethodCall(MethodCallExpression node)
     {
-      var callObj = ((ConstantExpression) node.Arguments[0]).Value;
+      var callObj = (node.Object as ConstantExpression).Value;
       switch (node.Method.Name)
       {
         case "Contains":

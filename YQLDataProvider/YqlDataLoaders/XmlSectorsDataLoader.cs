@@ -5,6 +5,7 @@ using LinqToYql.Interfaces;
 using YQLDataProvider.Mappings;
 using HelperTools;
 using YQLDataProvider.Models;
+using AutoMapper;
 
 namespace YQLDataProvider.YqlDataLoaders
 {
@@ -19,7 +20,7 @@ namespace YQLDataProvider.YqlDataLoaders
             {
                 XDocumentToYqlDataMappings.CreateSectorsMap();
                 var sectorNodes = document.Root.With(x => x.Element("results")).With(y => y.Elements("sector"));
-                var sectors = AutoMapper.Mapper.Map<IEnumerable<XElement>,IEnumerable<YqlIndustrySector>>(sectorNodes).ToList();
+                var sectors = Mapper.Map<IEnumerable<XElement>,IEnumerable<YqlIndustrySector>>(sectorNodes).ToList();
 
                 foreach (var industrySector in sectors)
                     foreach (var industry in industrySector.Industries)

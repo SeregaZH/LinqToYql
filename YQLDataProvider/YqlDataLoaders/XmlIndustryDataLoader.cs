@@ -5,6 +5,7 @@ using LinqToYql.Interfaces;
 using YQLDataProvider.Mappings;
 using YQLDataProvider.Models;
 using HelperTools;
+using AutoMapper;
 
 namespace YQLDataProvider.YqlDataLoaders
 {
@@ -17,7 +18,7 @@ namespace YQLDataProvider.YqlDataLoaders
                 return new List<YqlIndustry>();
             var element = document.Root.With(x => x.Element("results")).With(y => y.Elements("industry"));
             XDocumentToYqlDataMappings.CreateIndustryMap();
-            var industries = AutoMapper.Mapper.Map<IEnumerable<XElement>, IEnumerable<YqlIndustry>>(element).ToList();
+            var industries = Mapper.Map<IEnumerable<XElement>, IEnumerable<YqlIndustry>>(element).ToList();
 
             foreach (var industry in industries)
                 foreach (var company in industry.With(x=>x.Companies))

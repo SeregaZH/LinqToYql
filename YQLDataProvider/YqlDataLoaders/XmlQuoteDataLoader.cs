@@ -4,6 +4,7 @@ using LinqToYql.Interfaces;
 using YQLDataProvider.Mappings;
 using YQLDataProvider.Models;
 using HelperTools;
+using AutoMapper;
 
 namespace YQLDataProvider.YqlDataLoaders
 {
@@ -16,7 +17,7 @@ namespace YQLDataProvider.YqlDataLoaders
             var sRes = document.Root.With(x => x.Element("results")).With(y => y.Elements("quote"));
 
             XDocumentToYqlDataMappings.CreateQuoteMap();
-            var result = AutoMapper.Mapper.Map<IEnumerable<XElement>, IEnumerable<YqlQuote>>(sRes);
+            var result = Mapper.Map<IEnumerable<XElement>, IEnumerable<YqlQuote>>(sRes);
             return result;
         }
     }

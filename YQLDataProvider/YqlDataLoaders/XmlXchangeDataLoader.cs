@@ -5,6 +5,7 @@ using LinqToYql.Interfaces;
 using YQLDataProvider.Mappings;
 using HelperTools;
 using YQLDataProvider.Models;
+using AutoMapper;
 
 namespace YQLDataProvider.YqlDataLoaders
 {
@@ -17,7 +18,7 @@ namespace YQLDataProvider.YqlDataLoaders
                 return new LinkedList<YqlXchangeRate>();
             XDocumentToYqlDataMappings.CreateXChangeRateMap();
             var xchangeCollection = document.Root.With(x => x.Element("results")).With(y => y.Elements("rate"));
-            var rates = AutoMapper.Mapper.Map<IEnumerable<XElement>, IEnumerable<YqlXchangeRate>>(xchangeCollection).ToList();
+            var rates = Mapper.Map<IEnumerable<XElement>, IEnumerable<YqlXchangeRate>>(xchangeCollection).ToList();
             foreach (var xchangeRate in rates)
                 xchangeRate.Pair.Rateses.Add(xchangeRate);
             return rates;

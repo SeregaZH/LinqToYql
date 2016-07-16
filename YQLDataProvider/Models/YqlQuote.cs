@@ -7,7 +7,7 @@ namespace YQLDataProvider.Models
     {
         [YqlIgnore]
         public Guid Id { get; set; }
-        public YqlCompany Company { get; set; }
+        // public YqlCompany Company { get; set; }
         public float? Ask { get; set; }
         public long? AverageDailyVolume { get; set; }
         public float? Bid { get; set; }
