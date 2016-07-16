@@ -4,16 +4,19 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{588C75E8-C005-4CD0-9801-15E4028B8A0A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{1E56C1E2-A826-4BD1-9EC3-2B25E8041478}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LinqToYqlDemo</RootNamespace>
-    <AssemblyName>LinqToYqlDemo</AssemblyName>
+    <RootNamespace>YQLDataProvider</RootNamespace>
+    <AssemblyName>YQLDataProvider</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +26,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -37,6 +39,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,12 +48,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Configuration\TableNameElement.cs" />
+    <Compile Include="Configuration\TablesNameCollection.cs" />
+    <Compile Include="Configuration\YqlSettingsConfigurationSection.cs" />
+    <Compile Include="Exceptions\InvalidConfigurationException.cs" />
+    <Compile Include="ISettingsFactory.cs" />
+    <Compile Include="Mappings\StringToNullableDateTime.cs" />
+    <Compile Include="Mappings\StringToNullableFloat.cs" />
+    <Compile Include="Mappings\StringToNullableLong.cs" />
+    <Compile Include="Mappings\XDocumentToYqlDataMappings.cs" />
+    <Compile Include="Models\YqlCompany.cs" />
+    <Compile Include="Models\YqlIndustry.cs" />
+    <Compile Include="Models\YqlIndustrySector.cs" />
+    <Compile Include="Models\YqlPair.cs" />
+    <Compile Include="Models\YqlQuote.cs" />
+    <Compile Include="Models\YqlXchangeRate.cs" />
+    <Compile Include="Providers\YqlIndustryDataProvider.cs" />
+    <Compile Include="Providers\YqlQuoteDataProvider.cs" />
+    <Compile Include="Providers\YqlXchangeRateDataProvider.cs" />
+    <Compile Include="QuerySettings.cs" />
+    <Compile Include="SettingsFactory.cs" />
+    <Compile Include="YqlDataLoaders\XmlIndustryDataLoader.cs" />
+    <Compile Include="YqlDataLoaders\XmlQuoteDataLoader.cs" />
+    <Compile Include="YqlDataLoaders\XmlSectorsDataLoader.cs" />
+    <Compile Include="YqlDataLoaders\XmlXchangeDataLoader.cs" />
+    <Compile Include="Providers\YqlIndustrySectorsDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HelperTools\HelperTools.csproj">
@@ -61,10 +84,12 @@
       <Project>{c83f916e-d399-499d-96c6-3e09604d8466}</Project>
       <Name>LinqToYql</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YQLDataProvider\YQLDataProvider.csproj">
-      <Project>{1e56c1e2-a826-4bd1-9ec3-2b25e8041478}</Project>
-      <Name>YQLDataProvider</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
