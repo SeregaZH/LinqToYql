@@ -1,4 +1,4 @@
 LinqToYql
 =========
 
-IQuerable interaface implementation for access to the YQL API
+IQuerable interaface implementation to access to the YQL API
